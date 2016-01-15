@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>DevOps Expense Graph</title>
+        <!-- import plugin script -->
+        <script src='Chart.min.js'></script>
+        <link rel="SHORTCUT ICON" href="Content/Tallie.ico">
+    </head>
+    <body>
+<div>
+    <canvas id="chartDiv" height="800" width="1300"></canvas>
+    <div id="legendDiv"></div>
+</div>
+
+<script>
+   var data = {
+        labels: ["PaperTrail", "DataDog", "OctopusDeploy", "TeamCity", "AWS", "VisualStudio", "HipChat", "NewRelic","PagerDuty", "StatusPage", "TargetProcess", "CloudAMQP"],
+        datasets: [
+            {
+                label: "Current Cost $ Monthly",
+                fillColor: "#48A497",
+                strokeColor: "rgba(220,220,220,1)",
+                pointColor: "rgba(220,220,220,1)",
+                pointStrokeColor: "#fff",
+                pointHighlightFill: "#fff",
+                pointHighlightStroke: "rgba(220,220,220,1)",
+                data: [300, 1035, 0, 0, 56, 0, 74, 570, 0, 29, 221, 2191]
+            },
+            {
+                label: "Proposed Cost $ Monthly",
+                fillColor: "rgba(151,187,205,0.2)",
+                strokeColor: "rgba(151,187,205,1)",
+                pointColor: "rgba(151,187,205,1)",
+                pointStrokeColor: "#fff",
+                pointHighlightFill: "#fff",
+                pointHighlightStroke: "rgba(151,187,205,1)",
+                data: [220, 1035, 208, 250, 86, 782, 74, 570, 0, 29, 221, 2191]
+            }
+        ]
+    };
+
+    var myLineChart = new Chart(document.getElementById("chartDiv").getContext("2d")).Bar(data);
+    document.getElementById("legendDiv").innerHTML = myLineChart.generateLegend();
+</script>
+    </body>
+</html>
+

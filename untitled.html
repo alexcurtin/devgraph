@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>DevOps Expense Graph</title>
+        <!-- import plugin script -->
+        <script src='Chart.min.js'></script>
+    </head>
+    <body>
+        <br>
+               <h1>Current Vs Proposed Operations Costs</h1>
+        
+        <canvas id="income" width="1000" height="600"></canvas>
+        <script>
+            // bar chart data
+            var barData = {
+                labels : ["PaperTrail","DataDog","OctopusDeploy","TeamCity","AWS","VisualStudio"],
+                datasets : [
+                    {
+                        fillColor : "#48A497",
+                        strokeColor : "#48A4D1",
+                        data : [456,479,324,569,702,0]
+                    },
+                    {
+                        fillColor : "rgba(73,188,170,0.4)",
+                        strokeColor : "rgba(72,174,209,0.4)",
+                        data : [364,504,605,400,345,782]
+                    }
+                ]
+            }
+            // get bar chart canvas
+            var income = document.getElementById("income").getContext("2d");
+            // draw bar chart
+            myNewChart = new Chart(income).Bar(barData, {});
+            myNewChart.datasets[0].bars[0].fillColor = "cyan";
+            myNewChart.datasets[0].bars[1].fillColor = "orange";
+            myNewChart.datasets[0].bars[2].fillColor = "red";
+            myNewChart.datasets[0].bars[3].fillColor = "blue";
+            myNewChart.datasets[0].bars[4].fillColor = "yellow";
+            myNewChart.datasets[0].bars[5].fillColor = "lime";
+        </script>
+        <td style="vertical-align: middle;">
+            <h2 style="text-align: center;">test</h2>
+            </td>
+        <h2> Current Cost Proposed Cost</h2>
+    </body>
+</html>
+
