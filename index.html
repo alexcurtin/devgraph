@@ -9,13 +9,13 @@
     </head>
     <body>
 <div>
-    <canvas id="chartDiv" height="600" width="1300"></canvas>
+    <canvas id="chartDiv" height="1000" width="1300"></canvas>
     <div id="legendDiv"></div>
 </div>
 
 <script>
    var data = {
-        labels: ["PaperTrail", "DataDog", "OctopusDeploy", "TeamCity", "AWS", "VisualStudio", "HipChat", "NewRelic","PagerDuty", "StatusPage", "TargetProcess", "CloudAMQP"],
+        labels: ["PaperTrail", "DataDog", "OctopusDeploy", "TeamCity", "AWS", "VisualStudio", "HipChat", "NewRelic","PagerDuty", "StatusPage", "TargetProcess", "CloudAMQP", "ElasticSearch", "AWS"],
         datasets: [
             {
                 label: "Current Cost $ Monthly",
@@ -25,7 +25,7 @@
                 pointStrokeColor: "#fff",
                 pointHighlightFill: "#fff",
                 pointHighlightStroke: "rgba(220,220,220,1)",
-                data: [300, 1035, 0, 0, 56, 0, 74, 570, 0, 29, 221, 2191]
+                data: [300, 1035, 0, 0, 0, 0, 74, 570, 0, 29, 221, 2191, 0, 29998.13]
             },
             {
                 label: "Proposed Cost $ Monthly",
@@ -35,7 +35,7 @@
                 pointStrokeColor: "#fff",
                 pointHighlightFill: "#fff",
                 pointHighlightStroke: "rgba(151,187,205,1)",
-                data: [220, 1035, 208, 250, 86, 782, 74, 570, 0, 29, 221, 2191]
+                data: [220, 1035, 208, 250, 0, 782, 74, 570, 0, 29, 221, 2191, 120, 29998.13]
             }
         ]
     };
