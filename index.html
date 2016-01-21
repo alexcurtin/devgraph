@@ -8,40 +8,84 @@
         <link rel="SHORTCUT ICON" href="Content/Tallie.ico">
     </head>
     <body>
-<div>
+<div style ="width: 50%">
     <canvas id="chartDiv" height="1000" width="1300"></canvas>
     <div id="legendDiv"></div>
 </div>
+<div style="width 50%">
+    <canvas id="chartDiv2" height="600" width="800"></canvas>
+    <div id="LegendDiv2"></div>
 
 <script>
-   var data = {
-        labels: ["PaperTrail", "DataDog", "OctopusDeploy", "TeamCity", "AWS", "VisualStudio", "HipChat", "NewRelic","PagerDuty", "StatusPage", "TargetProcess", "CloudAMQP", "ElasticSearch", "AWS"],
+   var options = {
+        responsive: false,
+        maintainAspectRatio: true,
+        scaleShowLabels: true,
+        scaleLabel: "<%= Number(value)+ '$'%>",
+        scaleOverride: false,
+        scaleSteps: 10,
+        startScaleValue: 0,
+   };
+   var data2 = {
+        labels: ["AWS"],
         datasets: [
-            {
-                label: "Current Cost $ Monthly",
-                fillColor: "#48A497",
+        {
+            label: "Current Cost Monthly",
+            fillColor: "#48A497",
                 strokeColor: "rgba(220,220,220,1)",
                 pointColor: "rgba(220,220,220,1)",
                 pointStrokeColor: "#fff",
                 pointHighlightFill: "#fff",
                 pointHighlightStroke: "rgba(220,220,220,1)",
-                data: [300, 1035, 0, 0, 0, 0, 74, 570, 0, 29, 221, 2191, 0, 29998.13]
-            },
-            {
-                label: "Proposed Cost $ Monthly",
+                data: [29998.13]
+        },
+        {
+            label: "Proposed Cost Monthly",
                 fillColor: "rgba(151,187,205,0.2)",
                 strokeColor: "rgba(151,187,205,1)",
                 pointColor: "rgba(151,187,205,1)",
                 pointStrokeColor: "#fff",
                 pointHighlightFill: "#fff",
                 pointHighlightStroke: "rgba(151,187,205,1)",
-                data: [220, 1035, 208, 250, 0, 782, 74, 570, 0, 29, 221, 2191, 120, 29998.13]
+                data: [25998.13]
+        }
+
+        ]
+   };
+   
+   var myBarChart = new Chart(document.getElementById("chartDiv2").getContext("2d")).Bar(data2, options);
+    document.getElementById("legendDiv").innerHTML = myBarChart.generateLegend();
+
+   var data = {
+        labels: ["PaperTrail", "DataDog", "OctopusDeploy", "TeamCity", "Confluence", "VisualStudio", "HipChat", "NewRelic","PagerDuty", "StatusPage", "TargetProcess", "CloudAMQP", "ElasticSearch"],
+        datasets: [
+            {
+                label: "Current Cost Monthly =",
+                fillColor: "#48A497",
+                strokeColor: "rgba(220,220,220,1)",
+                pointColor: "rgba(220,220,220,1)",
+                pointStrokeColor: "#fff",
+                pointHighlightFill: "#fff",
+                pointHighlightStroke: "rgba(220,220,220,1)",
+                data: [300, 1035, 0, 0, 100, 0, 74, 570, 0, 29, 221, 2191, 0]
+            },
+            {
+                label: "Proposed Cost Monthly =",
+                fillColor: "rgba(151,187,205,0.2)",
+                strokeColor: "rgba(151,187,205,1)",
+                pointColor: "rgba(151,187,205,1)",
+                pointStrokeColor: "#fff",
+                pointHighlightFill: "#fff",
+                pointHighlightStroke: "rgba(151,187,205,1)",
+                data: [220, 1035, 208, 250, 100, 782, 74, 570, 0, 29, 221, 2191, 120]
             }
         ]
     };
 
-    var myLineChart = new Chart(document.getElementById("chartDiv").getContext("2d")).Bar(data);
+    var myLineChart = new Chart(document.getElementById("chartDiv").getContext("2d")).Bar(data, options);
     document.getElementById("legendDiv").innerHTML = myLineChart.generateLegend();
+
+    
 </script>
     </body>
 </html>
